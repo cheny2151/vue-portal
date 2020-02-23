@@ -56,6 +56,23 @@ export default {
             return null;
         }
 
+    },
+    getCurrentAuthInfo: function(){
+        let auth = sessionStorage.getItem("AUTH")
+        if(auth){
+            return JSON.parse(auth);
+        }else {
+            return null;
+        }
+    },
+    hasRole: function(role){
+        let auth = this.getCurrentAuthInfo();
+        if (auth === null){
+            return false;
+        }else {
+            console.info(auth)
+            return auth.user.roles.indexOf(role) !== -1
+        }
     }
 
 };
