@@ -61,7 +61,7 @@ export const POST = (url, params) => {
 }
 
 export const GET = (url, params) => {
-    return axios.get(`${url}`, params).then(res => res.data)
+    return axios.get(`${url}`, {params:params}).then(res => res.data)
 }
 
 export const PUT = (url, params) => {
